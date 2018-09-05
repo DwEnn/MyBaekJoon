@@ -67,15 +67,18 @@ public class KaKao4 {
 						}
 					}
 				} else {
-					if(crew.get(j) <= busTable[i]) {
-						Date d = new Date();
-						d.setTime(crew.get(0));
-						crew.remove(0);
-						boarding.add(format.format(d));					
-					}					
+					if(crew.size() <= j) {
+						continue;
+					} else {
+						if(crew.get(j) <= busTable[i]) {
+							Date d = new Date();
+							d.setTime(crew.get(0));
+							crew.remove(0);
+							boarding.add(format.format(d));					
+						}						
+					}
 				}
 			}
 		}
-		
 	}
 }
