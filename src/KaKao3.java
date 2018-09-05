@@ -4,8 +4,6 @@ public class KaKao3 {
 
 	final static int cacheHit = 1;
 	final static int cacheMiss = 5;
-	static int cacheCnt = 0;
-	
 	static ArrayList<String> cache;
 	
 	public static void main(String[] args) {
