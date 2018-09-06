@@ -74,7 +74,7 @@ public class KaKao4 {
 							Date d = new Date();
 							d.setTime(crew.get(0));
 							crew.remove(0);
-							boarding.add(format.format(d));					
+							boarding.add(format.format(d));
 						}						
 					}
 				}
