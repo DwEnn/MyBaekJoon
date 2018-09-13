@@ -8,13 +8,13 @@ public class KaKao6 {
 		int m = 6, n = 6;
 		String[] board = {"TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"};
 
-		Solution so = new Solution();
+		Solution1 so = new Solution1();
 		so.solution(m, n, board);
 	}
 }
 
 
-class Solution {
+class Solution1 {
 
 	public int solution(int m, int n, String[] board) {
 		int answer = 0;
