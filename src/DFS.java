@@ -23,18 +23,18 @@ public class DFS {
 		// G.dfs();
 
 		// 무방향 다수의 컴포넌트
-//		Graph G = new Graph(10);
-//		G.addEdge(0, 1);
-//		G.addEdge(1, 3);
-//		G.addEdge(2, 3);
-//		G.addEdge(4, 6);
-//		G.addEdge(5, 7);
-//		G.addEdge(5, 8);
-//		G.addEdge(7, 8);
-//		G.sortList();
-//		int components = G.dfsAll();
-//		System.out.println("The number of component is : " + components);
-		
+		// Graph G = new Graph(10);
+		// G.addEdge(0, 1);
+		// G.addEdge(1, 3);
+		// G.addEdge(2, 3);
+		// G.addEdge(4, 6);
+		// G.addEdge(5, 7);
+		// G.addEdge(5, 8);
+		// G.addEdge(7, 8);
+		// G.sortList();
+		// int components = G.dfsAll();
+		// System.out.println("The number of component is : " + components);
+
 		// 정점 수 구하기
 		Graph G = new Graph(10);
 		G.addEdge(0, 1);
@@ -82,13 +82,13 @@ class Graph {
 		for (int i = 0; i < N; i++)
 			visited.set(i, false);
 
-		// for(int i=0; i<N; i++) {
-		// System.out.print("i : " + i + " adj[i] : ");
-		// for(int j=0; j<adj.get(i).size(); j++) {
-		// System.out.print(adj.get(i).get(j) + " ");
-		// }
-		// System.out.println();
-		// }
+		for (int i = 0; i < N; i++) {
+			System.out.print("i : " + i + " adj[i] : ");
+			for (int j = 0; j < adj.get(i).size(); j++) {
+				System.out.print(adj.get(i).get(j) + " ");
+			}
+			System.out.println();
+		}
 
 		dfs(0);
 	}
@@ -108,7 +108,7 @@ class Graph {
 
 		return components;
 	}
-	
+
 	private void dfs(int curr) {
 		visited.set(curr, true);
 		System.out.println("node : " + curr + " visited");
@@ -117,24 +117,24 @@ class Graph {
 				dfs(next);
 		}
 	}
-	
+
 	// 모든 정점을 DFS 하고 컴포넌트 개수 반환
 	int dfsAllCnt() {
 		int components = 0;
 		for (int i = 0; i < N; i++)
 			visited.set(i, false);
-		
-		for(int i=0; i<N; i++) {
+
+		for (int i = 0; i < N; i++) {
 			if (!visited.get(i)) {
 				System.out.println("-- new DFS begins --");
-				int nodes = dfsCnt(i); 
+				int nodes = dfsCnt(i);
 				components++;
 				System.out.println("size : " + nodes);
 			}
 		}
 		return components;
 	}
-	
+
 	// curr 부터 방문한 정점 개수 반환
 	private int dfsCnt(int curr) {
 		int nodes = 1;
