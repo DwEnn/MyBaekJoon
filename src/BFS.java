@@ -21,7 +21,7 @@ public class BFS {
 		G.addEdge(6, 7);
 		G.addEdge(6, 8);
 		G.sortList();
-		G.bfs();
+//		G.bfs();
 		G.bfsCntLevel();
 		
 	}
@@ -33,7 +33,6 @@ class BFSGraph {
 	Vector<Vector<Integer>> adj;
 
 	BFSGraph(int N) {
-		// TODO Auto-generated constructor stub
 		this.N = N;
 		adj = new Vector<>();
 		for (int i = 0; i < N; i++)
@@ -42,8 +41,10 @@ class BFSGraph {
 
 	// 모든 리스트의 인접한 정점 번호 정렬
 	void sortList() {
-		for (int i = 0; i < N; i++)
-			Collections.sort(adj.get(i), new BFSCompare());
+		for (int i = 0; i < N; i++) {
+//			Collections.sort(adj.get(i), new BFSCompare());
+			Collections.sort(adj.get(i));
+		}
 	}
 
 	// 간선 추가 함수
@@ -54,13 +55,11 @@ class BFSGraph {
 
 	// 너비 우선 탐색
 	void bfs() {
-		Vector<Boolean> visited = new Vector<>();
-		for (int i = 0; i < N; i++)
-			visited.add(false);
+		boolean visited[] = new boolean[N];
 
 		LinkedList<Integer> queue = new LinkedList<>();
 		queue.push(0);
-		visited.set(0, true);
+		visited[0] = true;
 
 		// 탐색시작
 		while (!queue.isEmpty()) {
@@ -68,26 +67,22 @@ class BFSGraph {
 			queue.pop();
 			System.out.println("node : " + curr + " visited");
 			for (int next : adj.get(curr)) {
-//				System.out.println("next : " + next + " adj : " + adj.get(curr));
-				if (!visited.get(next)) {
-					visited.set(next, true);
+				if (!visited[next]) {
+					visited[next] = true;
 					queue.add(next);
 				}
 			}
-//			System.out.println("queue : " + queue);
 		}
 	}
 
 	// 너비 우선 탐색
 	void bfsCntLevel() {
-		Vector<Boolean> visited = new Vector<>();
-		for (int i = 0; i < N; i++)
-			visited.add(false);
+		boolean visited[] = new boolean[N];
 
 		LinkedList<Integer> queue = new LinkedList<>();
 		queue.push(0);
-		visited.set(0, true);
-
+		visited[0] = true;
+		
 		// 탐색시작
 		int level = 0;
 		while (!queue.isEmpty()) {
@@ -98,8 +93,8 @@ class BFSGraph {
 				queue.pop();
 				System.out.println("node : " + curr + " visited");
 				for (int next : adj.get(curr)) {
-					if (!visited.get(next)) {
-						visited.set(next, true);
+					if (!visited[next]) {
+						visited[next] = true;
 						queue.add(next);
 					}
 				}
@@ -113,7 +108,6 @@ class BFSCompare implements Comparator<Integer> {
 
 	@Override
 	public int compare(Integer o1, Integer o2) {
-		// TODO Auto-generated method stub
 		return o1.compareTo(o2);
 	}
 
