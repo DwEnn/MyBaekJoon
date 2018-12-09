@@ -1,5 +1,11 @@
 package etc;
 
+/**
+ * reference 생활코딩 ( https://opentutorials.org/course/1223/6062 )
+ * @author DwEnn
+ *
+ */
+
 public class AbstractEx {
 
 	public static void main(String[] args) {
@@ -10,6 +16,7 @@ public class AbstractEx {
 		CalculatorDecoMinus c2 = new CalculatorDecoMinus();
 		c2.setOprands(10, 20);
 		c2.run();
+		
 	}
 
 }
